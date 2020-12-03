@@ -20,13 +20,14 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry', '~> 0.13.1'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :development do
   gem 'listen', '~> 3.2'
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

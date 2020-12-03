@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
   include SimpleEndpoint::Controller
+  include JWTSessions::RailsAuthorization
+  rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
 
   private
 
