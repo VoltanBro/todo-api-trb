@@ -113,6 +113,8 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
+    jsonapi-serializer (2.1.0)
+      activesupport (>= 4.2)
     jwt (2.2.2)
     jwt_sessions (2.5.2)
       jwt (>= 2.1.1, < 3)
@@ -270,9 +272,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   dry-validation (= 0.11.1)
+  jsonapi-serializer
   jwt_sessions
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
+  pry (~> 0.13.1)
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)

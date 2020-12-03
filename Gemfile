@@ -6,6 +6,7 @@ ruby '2.7.1'
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dry-validation', '0.11.1'
+gem 'jsonapi-serializer'
 gem 'jwt_sessions'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
@@ -17,6 +18,7 @@ gem 'trailblazer', '~> 2.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry', '~> 0.13.1'
   gem 'pry-rails'
 end
 
