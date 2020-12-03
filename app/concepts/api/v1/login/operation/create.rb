@@ -3,6 +3,7 @@ class Api::V1::Login::Operation::Create < Trailblazer::Operation
   step :authenticate
   step :payload
   step :session
+  step :token
 
   def find_user(ctx, params:, **)
     ctx[:user] = User.find_by(email: params[:email])
@@ -20,7 +21,8 @@ class Api::V1::Login::Operation::Create < Trailblazer::Operation
     ctx[:session] = JWTSessions::Session.new(payload: payload)
   end
 
-  # def serialize_user(ctx, model:, **)
-  #   ctx[:serialize_user] = UserSerializer.new(model).serializable_hash.to_json
-  # end
+  def token(ctx, session:, **)
+    byebug
+    session.login.to_json
+  end
 end
