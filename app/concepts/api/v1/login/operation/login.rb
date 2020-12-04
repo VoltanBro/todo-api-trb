@@ -1,5 +1,6 @@
-class Api::V1::Login::Operation::Create < Trailblazer::Operation
+class Api::V1::Login::Operation::Login < Trailblazer::Operation
   step :find_user
+  fail :invalid_user
   step :authenticate
   step :payload
   step :session
@@ -7,6 +8,10 @@ class Api::V1::Login::Operation::Create < Trailblazer::Operation
 
   def find_user(ctx, params:, **)
     ctx[:user] = User.find_by(email: params[:email])
+  end
+
+  def invalid_user(ctx, **)
+    ctx[:errors] = 'Invalid email'
   end
 
   def authenticate(ctx, params:, **)
