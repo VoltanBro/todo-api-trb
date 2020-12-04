@@ -22,7 +22,6 @@ class Api::V1::Login::Operation::Create < Trailblazer::Operation
   end
 
   def token(ctx, session:, **)
-    byebug
-    session.login.to_json
+    ctx[:token] = session.login.to_json
   end
 end
