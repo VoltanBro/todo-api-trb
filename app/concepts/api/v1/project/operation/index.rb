@@ -7,7 +7,6 @@ class Api::V1::Project::Operation::Index < Trailblazer::Operation
   end
 
   def serialized_model(ctx, projects:, **)
-    binding.pry
     ctx[:serialized_model] = ProjectSerializer.new(projects).serializable_hash.to_json
   end
 end

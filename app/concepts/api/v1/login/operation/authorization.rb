@@ -1,6 +1,6 @@
 class Api::V1::Login::Operation::Authorization < Trailblazer::Operation
   step :access_token
-  fail :invalid_token
+  fail :invalid_token, fail_fast: true
   step :decode_token
   fail :decode_fail
   step :current_user

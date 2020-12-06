@@ -1,13 +1,12 @@
-class Api::V1::Project::Operation::Create < Trailblazer::Operation
-  step Model(Project, :new)
-  step :assign_current_user
+class Api::V1::Project::Operation::Update < Trailblazer::Operation
+  step :find_project
   step Contract::Build(constant: Api::V1::Project::Contract::Default)
   step Contract::Validate()
   step Contract::Persist()
   step :serialized_model
 
-  def assign_current_user(ctx, current_user:, model:, **)
-    model.user_id = current_user.id
+  def find_project(ctx, params:, current_user:, **)
+    ctx[:model] = current_user.projects.find_by(id: params[:id])
   end
 
   def serialized_model(ctx, model:, **)
