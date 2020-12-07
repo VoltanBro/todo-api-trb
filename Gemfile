@@ -6,6 +6,7 @@ ruby '2.7.1'
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dry-validation', '0.11.1'
+gem 'ffaker'
 gem 'jsonapi-serializer'
 gem 'jwt_sessions'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -30,4 +31,10 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'factory_bot'
+  gem "json_matchers"
+  gem 'shoulda-matchers', '~> 4.0'
 end
