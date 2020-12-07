@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       post '/registration', to: 'registrations#create'
       post '/login', to: 'sessions#login'
       resources :users
-      resources :projects
+      resources :projects do
+        resources :tasks
+      end
     end
   end
 end
