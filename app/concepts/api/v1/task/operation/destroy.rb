@@ -14,7 +14,7 @@ class Api::V1::Task::Operation::Destroy < Trailblazer::Operation
   end
 
   def not_found(ctx, **)
-    ctx[:errors] =  { error: 'Task not found' }
+    ctx[:errors] =  OpenStruct.new(error: 'Task not found')
   end
 
   def destroy_task(ctx, model:, **)
