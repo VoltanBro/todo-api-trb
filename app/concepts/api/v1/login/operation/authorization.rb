@@ -24,6 +24,6 @@ class Api::V1::Login::Operation::Authorization < Trailblazer::Operation
   end
 
   def current_user(ctx, decoded_token:, **)
-    ctx[:current_user] = User.find_by(id: decoded_token.first.dig('user_id'))
+    ctx[:current_user] = User.find_by(id: decoded_token.first['user_id'])
   end
 end

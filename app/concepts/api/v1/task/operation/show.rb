@@ -13,7 +13,7 @@ class Api::V1::Task::Operation::Show < Trailblazer::Operation
   end
 
   def not_found(ctx, **)
-    ctx[:errors] =  { error: 'Task not found' }
+    ctx[:errors] = { error: 'Task not found' }
   end
 
   def serialized_model(ctx, task:, **)

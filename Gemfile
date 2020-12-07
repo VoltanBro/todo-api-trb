@@ -18,7 +18,14 @@ gem 'simple_endpoint', '~> 1.0.0'
 gem 'trailblazer', '~> 2.1'
 
 group :development, :test do
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'bundle-audit'
+  gem 'bundler-leak', '~> 0.2.0'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_consistency'
+  gem 'fasterer', '~> 0.8.3'
+  gem 'lefthook', '~> 0.7.2'
   gem 'pry', '~> 0.13.1'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.1'
@@ -35,6 +42,7 @@ end
 
 group :test do
   gem 'factory_bot'
-  gem "json_matchers"
+  gem 'json_matchers'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'simplecov', require: false
 end

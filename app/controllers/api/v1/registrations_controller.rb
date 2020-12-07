@@ -1,6 +1,7 @@
 class Api::V1::RegistrationsController < ApplicationController
   def create
-    endpoint operation: Api::V1::User::Operation::Create, options: { params: params }, different_handler: registration_handler
+    endpoint operation: Api::V1::User::Operation::Create,
+             options: { params: params }, different_handler: registration_handler
   end
 
   private

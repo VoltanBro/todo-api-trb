@@ -9,7 +9,7 @@ class Api::V1::Project::Operation::Show < Trailblazer::Operation
   end
 
   def not_found(ctx, **)
-    ctx[:errors] =  { error: 'Project not found' }
+    ctx[:errors] = { error: 'Project not found' }
   end
 
   def serialized_model(ctx, model:, **)

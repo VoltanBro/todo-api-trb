@@ -12,6 +12,14 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
+Style/SignalException:
+  Exclude:
+    - 'app/concepts/**/*'
+
+Lint/UnreachableCode:
+  Exclude:
+    - 'app/concepts/**/*'
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 

@@ -5,4 +5,5 @@ class Api::V1::Task::Contract::Default < Reform::Form
   property :project_id
 
   validates :name, presence: true
+  validates :due_date, presence: true
 end

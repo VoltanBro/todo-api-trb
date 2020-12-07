@@ -1,0 +1,12 @@
+pre-commit:
+  commands:
+    code_style:
+      run: bundle exec rubocop
+    security:
+      run: bundle exec brakeman
+    db_optimisation:
+      run: bundle exec database_consistency
+    code_optimisation:
+      run: bundle exec fasterer
+    find_leaky:
+      run: bundle exec bundle-leak

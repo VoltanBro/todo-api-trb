@@ -7,7 +7,7 @@ class Api::V1::Project::Operation::Destroy < Trailblazer::Operation
     ctx[:model] = current_user.projects.find_by(id: params[:id])
   end
 
-  def destroy_project(ctx, model:, **)
+  def destroy_project(_ctx, model:, **)
     model.destroy
   end
 end

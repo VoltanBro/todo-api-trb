@@ -14,12 +14,16 @@ class ApplicationController < ActionController::API
   def default_handler
     {
       success: ->(result, **opts) { render json: result['serialized_model'], **opts, status: :ok },
-      invalid: ->(result, **) { render json: result['contract.default'].errors, serializer: ErrorSerializer, status: :unprocessable_entity }
+      invalid: lambda { |result, **|
+                 render json: result['contract.default'].errors,
+                        serializer: ErrorSerializer, status: :unprocessable_entity
+               }
     }
   end
 
   def authorization
-    endpoint operation: Api::V1::Login::Operation::Authorization, options: { request: request }, different_handler: authorization_handler
+    endpoint operation: Api::V1::Login::Operation::Authorization, options: { request: request },
+             different_handler: authorization_handler
   end
 
   def default_options

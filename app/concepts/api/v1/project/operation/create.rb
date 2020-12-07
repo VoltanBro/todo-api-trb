@@ -6,7 +6,7 @@ class Api::V1::Project::Operation::Create < Trailblazer::Operation
   step Contract::Persist()
   step :serialized_model
 
-  def assign_current_user(ctx, current_user:, model:, **)
+  def assign_current_user(_ctx, current_user:, model:, **)
     model.user_id = current_user.id
   end
 
