@@ -23,6 +23,10 @@ Lint/UnreachableCode:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Spec/MultipleExpectations:
+  Exclude:
+    - 'spec/concepts/api/v1/project/operation/**/*'
+
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
   Exclude:
