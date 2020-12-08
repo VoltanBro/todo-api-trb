@@ -9,6 +9,7 @@ RSpec.describe Api::V1::Project::Operation::Show do
 
     it 'returns user`s project' do
       expect(result[:model]).to eq(project)
+      expect(result).to be_success
     end
   end
 
@@ -18,7 +19,7 @@ RSpec.describe Api::V1::Project::Operation::Show do
 
     it 'returns user`s project' do
       expect(result[:model]).to be_nil
-      expect(result.failure?).to eq(true)
+      expect(result).to be_failure
     end
   end
 end
