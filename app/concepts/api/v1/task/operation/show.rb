@@ -9,14 +9,14 @@ class Api::V1::Task::Operation::Show < Trailblazer::Operation
   end
 
   def find_task(ctx, project:, params:, **)
-    ctx[:task] = project.tasks.find_by(id: params[:id])
+    ctx[:model] = project.tasks.find_by(id: params[:id])
   end
 
   def not_found(ctx, **)
     ctx[:errors] = { error: 'Task not found' }
   end
 
-  def serialized_model(ctx, task:, **)
-    ctx[:serialized_model] = TaskSerializer.new(task).serializable_hash.to_json
+  def serialized_model(ctx, model:, **)
+    ctx[:serialized_model] = TaskSerializer.new(model).serializable_hash.to_json
   end
 end

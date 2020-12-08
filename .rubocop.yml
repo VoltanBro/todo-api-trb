@@ -26,6 +26,7 @@ Style/FrozenStringLiteralComment:
 Spec/MultipleExpectations:
   Exclude:
     - 'spec/concepts/api/v1/project/operation/**/*'
+    - 'spec/concepts/api/v1/task/operation/**/*'
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
