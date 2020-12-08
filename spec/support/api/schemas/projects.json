@@ -1,0 +1,241 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "required": [
+      "data"
+  ],
+  "properties": {
+      "data": {
+          "$id": "#/properties/data",
+          "type": "array",
+          "additionalItems": true,
+          "items": [
+              {
+                  "$id": "#/properties/data/items/0",
+                  "type": "object",
+                  "required": [
+                      "id",
+                      "type",
+                      "attributes",
+                      "relationships"
+                  ],
+                  "properties": {
+                      "id": {
+                          "$id": "#/properties/data/items/0/properties/id",
+                          "type": "string"
+                      },
+                      "type": {
+                          "$id": "#/properties/data/items/0/properties/type",
+                          "type": "string"
+                      },
+                      "attributes": {
+                          "$id": "#/properties/data/items/0/properties/attributes",
+                          "type": "object",
+                          "required": [
+                              "title"
+                          ],
+                          "properties": {
+                              "title": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/title",
+                                  "type": "string"
+                              }
+                          },
+                          "additionalProperties": false
+                      },
+                      "relationships": {
+                          "$id": "#/properties/data/items/0/properties/relationships",
+                          "type": "object",
+                          "required": [
+                              "user"
+                          ],
+                          "properties": {
+                              "user": {
+                                  "$id": "#/properties/data/items/0/properties/relationships/properties/user",
+                                  "type": "object",
+                                  "required": [
+                                      "data"
+                                  ],
+                                  "properties": {
+                                      "data": {
+                                          "$id": "#/properties/data/items/0/properties/relationships/properties/user/properties/data",
+                                          "type": "object",
+                                          "required": [
+                                              "id",
+                                              "type"
+                                          ],
+                                          "properties": {
+                                              "id": {
+                                                  "$id": "#/properties/data/items/0/properties/relationships/properties/user/properties/data/properties/id",
+                                                  "type": "string"
+                                              },
+                                              "type": {
+                                                  "$id": "#/properties/data/items/0/properties/relationships/properties/user/properties/data/properties/type",
+                                                  "type": "string"
+                                              }
+                                          },
+                                          "additionalProperties": false
+                                      }
+                                  },
+                                  "additionalProperties": false
+                              }
+                          },
+                          "additionalProperties": false
+                      }
+                  },
+                  "additionalProperties": false
+              },
+              {
+                  "$id": "#/properties/data/items/1",
+                  "type": "object",
+                  "required": [
+                      "id",
+                      "type",
+                      "attributes",
+                      "relationships"
+                  ],
+                  "properties": {
+                      "id": {
+                          "$id": "#/properties/data/items/1/properties/id",
+                          "type": "string"
+                      },
+                      "type": {
+                          "$id": "#/properties/data/items/1/properties/type",
+                          "type": "string"
+                      },
+                      "attributes": {
+                          "$id": "#/properties/data/items/1/properties/attributes",
+                          "type": "object",
+                          "required": [
+                              "title"
+                          ],
+                          "properties": {
+                              "title": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/title",
+                                  "type": "string"
+                              }
+                          },
+                          "additionalProperties": false
+                      },
+                      "relationships": {
+                          "$id": "#/properties/data/items/1/properties/relationships",
+                          "type": "object",
+                          "required": [
+                              "user"
+                          ],
+                          "properties": {
+                              "user": {
+                                  "$id": "#/properties/data/items/1/properties/relationships/properties/user",
+                                  "type": "object",
+                                  "required": [
+                                      "data"
+                                  ],
+                                  "properties": {
+                                      "data": {
+                                          "$id": "#/properties/data/items/1/properties/relationships/properties/user/properties/data",
+                                          "type": "object",
+                                          "required": [
+                                              "id",
+                                              "type"
+                                          ],
+                                          "properties": {
+                                              "id": {
+                                                  "$id": "#/properties/data/items/1/properties/relationships/properties/user/properties/data/properties/id",
+                                                  "type": "string"
+                                              },
+                                              "type": {
+                                                  "$id": "#/properties/data/items/1/properties/relationships/properties/user/properties/data/properties/type",
+                                                  "type": "string"
+                                              }
+                                          },
+                                          "additionalProperties": false
+                                      }
+                                  },
+                                  "additionalProperties": false
+                              }
+                          },
+                          "additionalProperties": false
+                      }
+                  },
+                  "additionalProperties": false
+              },
+              {
+                  "$id": "#/properties/data/items/2",
+                  "type": "object",
+                  "required": [
+                      "id",
+                      "type",
+                      "attributes",
+                      "relationships"
+                  ],
+                  "properties": {
+                      "id": {
+                          "$id": "#/properties/data/items/2/properties/id",
+                          "type": "string"
+                      },
+                      "type": {
+                          "$id": "#/properties/data/items/2/properties/type",
+                          "type": "string"
+                      },
+                      "attributes": {
+                          "$id": "#/properties/data/items/2/properties/attributes",
+                          "type": "object",
+                          "required": [
+                              "title"
+                          ],
+                          "properties": {
+                              "title": {
+                                  "$id": "#/properties/data/items/2/properties/attributes/properties/title",
+                                  "type": "string"
+                              }
+                          },
+                          "additionalProperties": false
+                      },
+                      "relationships": {
+                          "$id": "#/properties/data/items/2/properties/relationships",
+                          "type": "object",
+                          "required": [
+                              "user"
+                          ],
+                          "properties": {
+                              "user": {
+                                  "$id": "#/properties/data/items/2/properties/relationships/properties/user",
+                                  "type": "object",
+                                  "required": [
+                                      "data"
+                                  ],
+                                  "properties": {
+                                      "data": {
+                                          "$id": "#/properties/data/items/2/properties/relationships/properties/user/properties/data",
+                                          "type": "object",
+                                          "required": [
+                                              "id",
+                                              "type"
+                                          ],
+                                          "properties": {
+                                              "id": {
+                                                  "$id": "#/properties/data/items/2/properties/relationships/properties/user/properties/data/properties/id",
+                                                  "type": "string"
+                                              },
+                                              "type": {
+                                                  "$id": "#/properties/data/items/2/properties/relationships/properties/user/properties/data/properties/type",
+                                                  "type": "string"
+                                              }
+                                          },
+                                          "additionalProperties": false
+                                      }
+                                  },
+                                  "additionalProperties": false
+                              }
+                          },
+                          "additionalProperties": false
+                      }
+                  },
+                  "additionalProperties": false
+              }
+          ]
+      }
+  },
+  "additionalProperties": false
+}

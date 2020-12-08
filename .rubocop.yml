@@ -25,10 +25,8 @@ Style/FrozenStringLiteralComment:
 
 Spec/MultipleExpectations:
   Exclude:
-    - 'spec/concepts/api/v1/project/operation/**/*'
-    - 'spec/concepts/api/v1/task/operation/**/*'
-    - 'spec/concepts/api/v1/user/operation/**/*'
-    - 'spec/concepts/api/v1/login/operation/**/*'
+    - 'spec/concepts/api/v1/**/*'
+    - 'spec/requests/api/v1/**/*'
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
@@ -42,3 +40,12 @@ Metrics/MethodLength:
     - 'db/seeds.rb'
     - 'db/schema.rb'
     - 'db/migrate/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/requests/api/v1/projects_controller_spec.rb'
+    - 'spec/requests/api/v1/tasks_controller_spec.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/requests/api/v1/tasks_controller_spec.rb'

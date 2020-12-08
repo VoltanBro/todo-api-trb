@@ -8,7 +8,7 @@ class Api::V1::Login::Operation::Authorization < Trailblazer::Operation
   private
 
   def access_token(ctx, request:, **)
-    ctx[:token] = request.headers['access']
+    ctx[:token] = request.headers[:access]
   end
 
   def invalid_token(ctx, **)
