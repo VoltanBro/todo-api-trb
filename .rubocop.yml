@@ -27,6 +27,8 @@ Spec/MultipleExpectations:
   Exclude:
     - 'spec/concepts/api/v1/project/operation/**/*'
     - 'spec/concepts/api/v1/task/operation/**/*'
+    - 'spec/concepts/api/v1/user/operation/**/*'
+    - 'spec/concepts/api/v1/login/operation/**/*'
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
