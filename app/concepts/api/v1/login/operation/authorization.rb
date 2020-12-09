@@ -1,8 +1,9 @@
 class Api::V1::Login::Operation::Authorization < Trailblazer::Operation
   step :access_token
   fail :invalid_token, fail_fast: true
-  step :decode_token
-  fail :decode_fail
+  step Rescue(JWT::ExpiredSignature, handler: :decode_fail) {
+    step :decode_token
+  }
   step :current_user
 
   private
@@ -19,8 +20,8 @@ class Api::V1::Login::Operation::Authorization < Trailblazer::Operation
     ctx[:decoded_token] = JWT.decode token, JWTSessions.public_key, true, { algorithm: 'RS256' }
   end
 
-  def decode_fail
-    ctx[:errors] = 'Token is invalid'
+  def decode_fail(exception, ctx, **)
+    ctx[:errors] = exception.message
   end
 
   def current_user(ctx, decoded_token:, **)

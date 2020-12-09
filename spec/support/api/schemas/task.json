@@ -52,39 +52,9 @@
                   "$id": "#/properties/data/properties/relationships",
                   "type": "object",
                   "required": [
-                      "user",
                       "project"
                   ],
                   "properties": {
-                      "user": {
-                          "$id": "#/properties/data/properties/relationships/properties/user",
-                          "type": "object",
-                          "required": [
-                              "data"
-                          ],
-                          "properties": {
-                              "data": {
-                                  "$id": "#/properties/data/properties/relationships/properties/user/properties/data",
-                                  "type": "object",
-                                  "required": [
-                                      "id",
-                                      "type"
-                                  ],
-                                  "properties": {
-                                      "id": {
-                                          "$id": "#/properties/data/properties/relationships/properties/user/properties/data/properties/id",
-                                          "type": "string"
-                                      },
-                                      "type": {
-                                          "$id": "#/properties/data/properties/relationships/properties/user/properties/data/properties/type",
-                                          "type": "string"
-                                      }
-                                  },
-                                  "additionalProperties": false
-                              }
-                          },
-                          "additionalProperties": false
-                      },
                       "project": {
                           "$id": "#/properties/data/properties/relationships/properties/project",
                           "type": "object",

@@ -26,7 +26,6 @@ group :development, :test do
   gem 'database_consistency'
   gem 'fasterer', '~> 0.8.3'
   gem 'lefthook', '~> 0.7.2'
-  gem 'pry', '~> 0.13.1'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop-performance', require: false

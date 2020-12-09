@@ -1,17 +1,12 @@
 class Api::V1::Task::Operation::Create < Trailblazer::Operation
   step Model(Task, :new)
-  step :assign_current_user
-  step :assign_task
+  step :assign_project
   step Contract::Build(constant: Api::V1::Task::Contract::Default)
   step Contract::Validate()
   step Contract::Persist()
   step :serialized_model
 
-  def assign_current_user(_ctx, current_user:, model:, **)
-    model.user_id = current_user.id
-  end
-
-  def assign_task(_ctx, params:, model:, **)
+  def assign_project(_ctx, params:, model:, **)
     model.project_id = params[:project_id]
   end
 

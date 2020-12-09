@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_100446) do
+ActiveRecord::Schema.define(version: 2020_12_09_100111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "body"
+    t.bigint "task_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_comments_on_task_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -27,12 +35,10 @@ ActiveRecord::Schema.define(version: 2020_12_07_100446) do
     t.string "name", null: false
     t.boolean "complited", default: false
     t.date "due_date", null: false
-    t.bigint "user_id"
     t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_100446) do
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "comments", "tasks"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
-  add_foreign_key "tasks", "users"
 end

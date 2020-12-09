@@ -4,6 +4,5 @@ class TaskSerializer
   attributes :complited
   attributes :due_date
 
-  belongs_to :user
   belongs_to :project
 end

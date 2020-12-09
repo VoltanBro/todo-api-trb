@@ -3,7 +3,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
   let!(:projects) { create_list(:project, 3, user: user) }
   let(:payload) { { user_id: user.id } }
   let(:session) { JWTSessions::Session.new(payload: payload) }
-  let!(:tasks) { create_list(:task, 3, project: projects.first, user: user) }
+  let!(:tasks) { create_list(:task, 3, project: projects.first) }
 
   describe 'GET #create' do
     let(:task) { attributes_for(:task) }

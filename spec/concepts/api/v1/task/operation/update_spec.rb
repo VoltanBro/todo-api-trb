@@ -3,7 +3,7 @@ RSpec.describe Api::V1::Task::Operation::Update do
 
   let(:user) { create(:user) }
   let!(:project) { create(:project, user: user) }
-  let(:task) { create(:task, user: user, project: project) }
+  let(:task) { create(:task, project: project) }
 
   context 'when params is valid' do
     let(:params) { { project_id: project.id, id: task.id, name: 'New task name' } }

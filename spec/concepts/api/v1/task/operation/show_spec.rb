@@ -3,7 +3,7 @@ RSpec.describe Api::V1::Task::Operation::Show do
 
   let(:user) { create(:user) }
   let(:project) { create(:project, user: user) }
-  let(:task) { create(:task, user: user, project: project) }
+  let(:task) { create(:task, project: project) }
 
   context 'when user tries to get his task' do
     let(:params) { { id: task.id, project_id: project.id } }
@@ -15,8 +15,8 @@ RSpec.describe Api::V1::Task::Operation::Show do
   end
 
   context 'when user tries to get foreign task' do
-    let(:user) { create(:user) }
-    let(:task) { create(:task, user: user) }
+    let(:project) { create(:project) }
+    let(:task) { create(:task) }
     let(:params) { { id: task.id, project_id: project.id } }
 
     it 'returns user`s task' do

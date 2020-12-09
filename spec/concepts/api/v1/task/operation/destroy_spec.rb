@@ -3,7 +3,7 @@ RSpec.describe Api::V1::Task::Operation::Destroy do
 
   let(:user) { create(:user) }
   let(:project) { create(:project, user: user) }
-  let!(:task) { create(:task, user: user, project: project) }
+  let!(:task) { create(:task, project: project) }
 
   context 'when user destroys his task' do
     let(:params) { { project_id: project.id, id: task.id } }

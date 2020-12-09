@@ -33,7 +33,7 @@ class ApplicationController < ActionController::API
   def authorization_handler
     {
       success: ->(result, **) { @current_user = result['current_user'] },
-      invalid: ->(_result, **) { render json: 'some error message', status: :unauthorized }
+      invalid: ->(result, **) { render json: result[:errors], status: :unauthorized }
     }
   end
 end

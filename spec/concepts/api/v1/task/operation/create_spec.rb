@@ -3,7 +3,7 @@ RSpec.describe Api::V1::Task::Operation::Create do
 
   let(:user) { create(:user) }
   let!(:project) { create(:project, user: user) }
-  let(:params) { { project_id: project.id }.merge(attributes_for(:task)) }
+  let(:params) { attributes_for(:task).merge(project_id: project.id) }
 
   context 'when params is valid' do
     it 'create new project`s task' do
