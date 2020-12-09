@@ -45,6 +45,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/requests/api/v1/projects_controller_spec.rb'
     - 'spec/requests/api/v1/tasks_controller_spec.rb'
+    - 'spec/requests/api/v1/comments_controller_spec.rb'
 
 RSpec/MultipleMemoizedHelpers:
   Exclude:

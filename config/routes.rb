@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       post '/login', to: 'sessions#login'
       resources :users
       resources :projects do
-        resources :tasks
+        resources :tasks do
+          resources :comments, only: %i[show create destroy]
+        end
       end
     end
   end
