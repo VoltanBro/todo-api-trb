@@ -4,7 +4,7 @@ RSpec.describe Api::V1::Comment::Contract::Default do
   describe 'validation' do
     context 'when params is valid' do
       let(:params) { attributes_for(:comment) }
-      
+
       it { expect(comment.validate(params)).to be_truthy }
     end
 

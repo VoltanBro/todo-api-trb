@@ -40,6 +40,7 @@ group :development do
 end
 
 group :test do
+  gem 'dox', require: false
   gem 'factory_bot_rails'
   gem 'json_matchers'
   gem 'shoulda-matchers', '~> 4.0'

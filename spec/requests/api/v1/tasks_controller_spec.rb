@@ -5,7 +5,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
   let(:session) { JWTSessions::Session.new(payload: payload) }
   let!(:tasks) { create_list(:task, 3, project: projects.first) }
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     let(:task) { attributes_for(:task) }
 
     it 'create new project' do
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::TasksController, type: :request do
     end
   end
 
-  describe 'GET #update' do
+  describe 'PUT #update' do
     let(:params) { { name: 'New task name' } }
 
     it 'update project`s task' do

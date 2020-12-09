@@ -1,10 +1,11 @@
 RSpec.describe Api::V1::ProjectsController, type: :request do
+  include Docs::V1::Projects::Api
   let(:user) { create(:user) }
   let!(:projects) { create_list(:project, 3, user: user) }
   let(:payload) { { user_id: user.id } }
   let(:session) { JWTSessions::Session.new(payload: payload) }
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     let(:project) { attributes_for(:project) }
 
     it 'create new project' do
@@ -15,7 +16,9 @@ RSpec.describe Api::V1::ProjectsController, type: :request do
   end
 
   describe 'GET #index' do
-    it 'return user`s projects' do
+    include Docs::V1::Projects::Index
+
+    it 'return user`s projects', :dox do
       get api_v1_projects_path, headers: session.login
       expect(response.status).to eq(200)
       expect(response).to match_json_schema('projects')
@@ -31,7 +34,7 @@ RSpec.describe Api::V1::ProjectsController, type: :request do
     end
   end
 
-  describe 'GET #update' do
+  describe 'PUT #update' do
     let(:params) { { title: 'New project name' } }
 
     it 'update user`s project' do
@@ -41,7 +44,7 @@ RSpec.describe Api::V1::ProjectsController, type: :request do
     end
   end
 
-  describe 'GET #destroy' do
+  describe 'POST #destroy' do
     it 'delete project' do
       delete api_v1_project_path(projects.first.id), headers: session.login
       expect(response.status).to eq(200)

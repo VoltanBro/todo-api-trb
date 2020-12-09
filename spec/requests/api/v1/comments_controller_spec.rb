@@ -5,7 +5,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
   let(:tasks) { create_list(:task, 3, project: projects.first) }
   let!(:comment) { create(:comment, task: tasks.first) }
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     let!(:comment) { attributes_for(:comment) }
 
     it 'create new project' do
@@ -29,7 +29,7 @@ RSpec.describe Api::V1::CommentsController, type: :request do
     end
   end
 
-  describe 'GET #destroy' do
+  describe 'POST #destroy' do
     it 'delete comment' do
       delete api_v1_project_task_comment_path(projects.first.id, tasks.first.id, comment.id), headers: session.login
       expect(response.status).to eq(200)

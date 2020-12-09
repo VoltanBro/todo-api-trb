@@ -2,7 +2,7 @@ RSpec.describe Api::V1::SessionsController, type: :request do
   let(:user) { create(:user) }
   let(:params) { { email: user.email, password: user.password } }
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     context 'when user input valid params' do
       it 'create user session' do
         post api_v1_login_path, params: params
