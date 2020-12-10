@@ -1,0 +1,53 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.7.1
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/SignalException:
+  Exclude:
+    - 'app/concepts/**/*'
+
+Lint/UnreachableCode:
+  Exclude:
+    - 'app/concepts/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Spec/MultipleExpectations:
+  Exclude:
+    - 'spec/concepts/api/v1/**/*'
+    - 'spec/requests/api/v1/**/*'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'app/channels/application_cable/channel.rb'
+    - 'app/channels/application_cable/connection.rb'
+    - 'config/application.rb'
+    - 'spec/docs/v1/**/*.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/seeds.rb'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/requests/api/v1/projects_controller_spec.rb'
+    - 'spec/requests/api/v1/tasks_controller_spec.rb'
+    - 'spec/requests/api/v1/comments_controller_spec.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/requests/api/v1/tasks_controller_spec.rb'

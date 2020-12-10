@@ -1,0 +1,85 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/repo
+    description: The official CircleCI Ruby Docker image
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment:
+          RAILS_ENV: test
+          NODE_ENV: test
+      - image: circleci/postgres:12.4
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: <%= ENV.fetch("PG_PASSWORD") %>
+          POSTGRES_DB: ruby_store_book_test
+      - image: redis:4.0-alpine
+        environment:
+          REDIS_NAMESPACE: book_test
+          CACHE_URL: redis://localhost:6379/0/cache
+          SESSION_STORE_URL: redis://localhost:6379/0/cache
+
+caches:
+  - &bundle_cache v1-repo-{{ checksum "Gemfile.lock" }}
+
+commands:
+  run_linters:
+    description: command to start linters
+    steps:
+      - run:
+          name: lefthook
+          command: bundle exec lefthook run pre-commit
+  run_specs:
+    steps:
+      - run:
+          name: run specs
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --format progress \
+                              --out /tmp/test-results/rspec.xml \
+                              --format progress \
+                              $TEST_FILES
+  defaults:
+    steps:
+      - checkout
+      - restore_cache:
+          key: *bundle_cache
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: *bundle_cache
+          paths:
+            - vendor/bundle
+      - run:
+          name: Set up DB
+          command: |
+            bundle exec rake db:create
+            bundle exec rails db:schema:load
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for Redis
+          command: dockerize -wait tcp://localhost:6379 -timeout 2m
+jobs:
+  lintering:
+    executor: default
+    steps:
+      - defaults
+      - run_linters
+  run_specs:
+    executor: default
+    steps:
+      - defaults
+      - run_specs
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - lintering
+      - run_specs:
+          requires:
+            - lintering

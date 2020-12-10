@@ -1,0 +1,19 @@
+DatabaseConsistencySettings:
+  color: true
+  log_level: DEBUG
+
+Task:
+  name:
+    NullConstraintChecker:
+      enabled: false
+  due_date:
+    NullConstraintChecker:
+      enabled: false
+
+User:
+  email:
+    NullConstraintChecker:
+      enabled: false
+  password_digest:
+    NullConstraintChecker:
+      enabled: false
